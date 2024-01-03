@@ -8,7 +8,11 @@ on: pull_request
 jobs:  
   test:
     runs-on: ubuntu-latest
-
+    container: diffblue/cover-cli:latest-jdk17
     steps:
     - name: Hello World Echo
       run: echo "Hello world from Diffblue Cover"
+    - name: Build PetClinic
+      run: ./mvnw package
+    - name: Run Diffblue Cover
+      run: dcover ci activate validate --maven create --maven
