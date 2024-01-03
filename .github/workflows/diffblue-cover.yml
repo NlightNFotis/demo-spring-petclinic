@@ -17,4 +17,4 @@ jobs:
     - name: Build PetClinic
       run: ./mvnw package
     - name: Run Diffblue Cover
-      run: dcover ci activate validate --maven create --maven
+      run: dcover ci activate ${{ secrets.DIFFBLUE_LICENSE }} validate --maven create --maven
