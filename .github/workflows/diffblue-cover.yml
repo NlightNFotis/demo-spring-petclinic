@@ -14,7 +14,11 @@ jobs:
       run: echo "Hello world from Diffblue Cover"
     - name: Checkout project
       uses: actions/checkout@v4
+      with:
+        set-safe-directory: true
     - name: Build PetClinic
       run: ./mvnw package
     - name: Run Diffblue Cover
-      run: dcover ci activate ${{ secrets.DIFFBLUE_LICENSE }} validate --maven create --maven
+      run: |
+        git config --global --add safe.directory /__w/demo-spring-petclinic/demo-spring-petclinic
+        dcover ci activate ${{ secrets.DIFFBLUE_LICENSE }} validate --maven create --maven
