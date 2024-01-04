@@ -21,4 +21,4 @@ jobs:
     - name: Run Diffblue Cover
       run: |
         git config --global --add safe.directory /__w/demo-spring-petclinic/demo-spring-petclinic
-        dcover ci --github-diffblue-token=${{ secrets.DCOVER_TOKEN }} --github-diffblue-login=${{ secrets.USERNAME }} activate ${{ secrets.DIFFBLUE_LICENSE }} validate --maven create --maven
+        dcover ci --github-diffblue-token=${{ secrets.DCOVER_TOKEN }} activate ${{ secrets.DIFFBLUE_LICENSE }} validate --maven create --maven
