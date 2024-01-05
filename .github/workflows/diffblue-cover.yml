@@ -19,6 +19,8 @@ jobs:
     - name: Build PetClinic
       run: ./mvnw package
     - name: Run Diffblue Cover
+      env:
+        GITHUB_OAUTH: jabberwocky
       run: |
         git config --global --add safe.directory /__w/demo-spring-petclinic/demo-spring-petclinic
-        dcover ci --github-diffblue-token=${{ secrets.DCOVER_TOKEN }} activate ${{ secrets.DIFFBLUE_LICENSE }} validate --maven create --maven
+        dcover ci activate ${{ secrets.DIFFBLUE_LICENSE }} validate --maven create --maven
