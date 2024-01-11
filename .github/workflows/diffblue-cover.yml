@@ -18,6 +18,8 @@ jobs:
         set-safe-directory: true
     - name: Build PetClinic
       run: ./mvnw package
+    - name: Log DCover version
+      run: dcover --version
     - name: Run Diffblue Cover
       env:
         GITHUB_OAUTH: jabberwocky
