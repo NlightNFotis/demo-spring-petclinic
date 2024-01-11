@@ -22,7 +22,7 @@ jobs:
       run: dcover --version
     - name: Run Diffblue Cover
       env:
-        GITHUB_OAUTH: jabberwocky
+        GITHUB_OAUTH: ${{ secrets.DCOVER_TOKEN }}
         GITHUB_PR_NUMBER: ${{ github.event.number }}  
       run: |
         git config --global --add safe.directory /__w/demo-spring-petclinic/demo-spring-petclinic
